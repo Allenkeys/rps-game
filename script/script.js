@@ -1,14 +1,14 @@
+let choice = ['rock', 'paper', 'scissors'];
 //function for computer random choices
 function computerPlay(){
-    let compChoice = ['rock', 'paper', 'scissors'];
-    return compChoice[Math.floor(Math.random() * compChoice.length)];
+    return choice[Math.floor(Math.random() * choice.length)];
 }
-
 
 
 //Create function for single round of the game
 //Return a string that declares the winner
 function playRound(playerChoice, computerChoice){
+
     if(playerChoice === 'rock' && computerChoice === 'scissors'){
         return `You won! ${playerChoice} beats ${computerChoice}`;
     }else if(playerChoice === 'scissors' && computerChoice === 'paper'){
@@ -22,8 +22,21 @@ function playRound(playerChoice, computerChoice){
     }
 }
 
-const playerChoice = prompt('rock paper scissors', 'enter choice').toLowerCase();
-console.log(playerChoice);
-const computerChoice = computerPlay();
-console.log(computerChoice);
-console.log(playRound(playerChoice, computerChoice));
+
+
+
+
+
+function game(){
+    for(let i = 0; i < 5; i++){
+        const playerChoice = prompt('rock paper scissors', 'enter choice').toLowerCase(); 
+        const computerChoice = computerPlay();
+        playRound(playerChoice, computerChoice); 
+        console.log(playerChoice);
+        console.log(computerChoice);
+        console.log(playRound(playerChoice, computerChoice));
+
+    }
+}
+
+game();
