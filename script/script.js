@@ -9,7 +9,7 @@ function getComputerInput(){
 //function for player inputs to return case-insensitive string
 function getPlayerInput(){
     let choicePlay;
-    return choicePlay = prompt('Enter rock, paper or scissors').toLowerCase();
+    return choicePlay = prompt('Enter rock, paper or scissors', 'rock').toLowerCase();
 }
 
 
@@ -43,21 +43,24 @@ function createRound(){
         console.log(computerChoice);
         console.log(computerScore);
     }
+    console.log(checkScores());
 }
 
-createRound();
-//Function to create 5 play times
-// function game(){
-//     for(let i = 0; i < 5; i++){
-//         const playerChoice = getPlayerInput(); 
-//         const computerChoice = getComputerInput();
-//         roundWinner(playerChoice, computerChoice); 
-//         console.log(playerChoice);
-//         console.log(computerChoice);
-//         console.log(roundWinner(playerChoice, computerChoice));
-//     }
-//     console.log(playerScore);
-//     console.log(computerScore);
-// }
+function checkScores(){
+    if(playerScore == computerScore){
+        return 'It\'s a tie, care to play again?';
+    }else if(playerScore > computerScore){
+        return 'Player wins game';
+    }else{
+        return 'Game over';
+    }   
+}
 
-// game();
+
+//Function to create 5 play times
+function game(){
+    createRound();
+}
+
+game();
+
